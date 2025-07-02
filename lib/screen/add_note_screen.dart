@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_to_do_list/const/colors.dart';
-import 'package:flutter_to_do_list/data/firestor.dart';
+import 'package:todo_with_firebase/const/colors.dart';
+import 'package:todo_with_firebase/data/firestor.dart';
 
 class Add_creen extends StatefulWidget {
   const Add_creen({super.key});
@@ -31,7 +31,7 @@ class _Add_creenState extends State<Add_creen> {
             SizedBox(height: 20),
             imagess(),
             SizedBox(height: 20),
-            button()
+            button(),
           ],
         ),
       ),
@@ -92,11 +92,7 @@ class _Add_creenState extends State<Add_creen> {
                 ),
                 width: 140,
                 margin: EdgeInsets.all(8),
-                child: Column(
-                  children: [
-                    Image.asset('images/${index}.png'),
-                  ],
-                ),
+                child: Column(children: [Image.asset('images/${index}.png')]),
               ),
             ),
           );
@@ -118,23 +114,17 @@ class _Add_creenState extends State<Add_creen> {
           focusNode: _focusNode1,
           style: TextStyle(fontSize: 18, color: Colors.black),
           decoration: InputDecoration(
-              contentPadding:
-                  EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-              hintText: 'title',
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
-                  color: Color(0xffc5c5c5),
-                  width: 2.0,
-                ),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
-                  color: custom_green,
-                  width: 2.0,
-                ),
-              )),
+            contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+            hintText: 'title',
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: Color(0xffc5c5c5), width: 2.0),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: custom_green, width: 2.0),
+            ),
+          ),
         ),
       ),
     );
@@ -158,17 +148,11 @@ class _Add_creenState extends State<Add_creen> {
             hintText: 'subtitle',
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(
-                color: Color(0xffc5c5c5),
-                width: 2.0,
-              ),
+              borderSide: BorderSide(color: Color(0xffc5c5c5), width: 2.0),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(
-                color: custom_green,
-                width: 2.0,
-              ),
+              borderSide: BorderSide(color: custom_green, width: 2.0),
             ),
           ),
         ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_to_do_list/const/colors.dart';
-import 'package:flutter_to_do_list/data/firestor.dart';
-import 'package:flutter_to_do_list/model/notes_model.dart';
-import 'package:flutter_to_do_list/screen/edit_screen.dart';
+import 'package:todo_with_firebase/const/colors.dart';
+import 'package:todo_with_firebase/data/firestor.dart';
+import 'package:todo_with_firebase/model/notes_model.dart';
+import 'package:todo_with_firebase/screen/edit_screen.dart';
 
 class Task_Widget extends StatefulWidget {
   Note _note;
@@ -63,21 +63,24 @@ class _Task_WidgetState extends State<Task_Widget> {
                             setState(() {
                               isDone = !isDone;
                             });
-                            Firestore_Datasource()
-                                .isdone(widget._note.id, isDone);
+                            Firestore_Datasource().isdone(
+                              widget._note.id,
+                              isDone,
+                            );
                           },
-                        )
+                        ),
                       ],
                     ),
                     Text(
                       widget._note.subtitle,
                       style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.grey.shade400),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey.shade400,
+                      ),
                     ),
                     Spacer(),
-                    edit_time()
+                    edit_time(),
                   ],
                 ),
               ),
@@ -101,10 +104,7 @@ class _Task_WidgetState extends State<Task_Widget> {
               borderRadius: BorderRadius.circular(18),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 12,
-                vertical: 6,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               child: Row(
                 children: [
                   Image.asset('images/icon_time.png'),
@@ -124,9 +124,11 @@ class _Task_WidgetState extends State<Task_Widget> {
           SizedBox(width: 20),
           GestureDetector(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => Edit_Screen(widget._note),
-              ));
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => Edit_Screen(widget._note),
+                ),
+              );
             },
             child: Container(
               width: 90,

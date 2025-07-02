@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_to_do_list/const/colors.dart';
-import 'package:flutter_to_do_list/screen/add_note_screen.dart';
-import 'package:flutter_to_do_list/widgets/stream_note.dart';
+import 'package:todo_with_firebase/const/colors.dart';
+import 'package:todo_with_firebase/screen/add_note_screen.dart';
+import 'package:todo_with_firebase/widgets/stream_note.dart';
 
 class Home_Screen extends StatefulWidget {
   const Home_Screen({super.key});
@@ -22,9 +22,9 @@ class _Home_ScreenState extends State<Home_Screen> {
         visible: show,
         child: FloatingActionButton(
           onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => Add_creen(),
-            ));
+            Navigator.of(
+              context,
+            ).push(MaterialPageRoute(builder: (context) => Add_creen()));
           },
           backgroundColor: custom_green,
           child: Icon(Icons.add, size: 30),
@@ -51,9 +51,10 @@ class _Home_ScreenState extends State<Home_Screen> {
               Text(
                 'isDone',
                 style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey.shade500,
-                    fontWeight: FontWeight.bold),
+                  fontSize: 16,
+                  color: Colors.grey.shade500,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               Stream_note(true),
             ],

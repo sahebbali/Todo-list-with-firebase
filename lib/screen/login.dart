@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_to_do_list/const/colors.dart';
-import 'package:flutter_to_do_list/data/auth_data.dart';
+import 'package:todo_with_firebase/const/colors.dart';
+import 'package:todo_with_firebase/data/auth_data.dart';
 
 class LogIN_Screen extends StatefulWidget {
   final VoidCallback show;
@@ -71,11 +71,12 @@ class _LogIN_ScreenState extends State<LogIN_Screen> {
             child: Text(
               'Sign UP',
               style: TextStyle(
-                  color: Colors.blue,
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold),
+                color: Colors.blue,
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -109,8 +110,12 @@ class _LogIN_ScreenState extends State<LogIN_Screen> {
     );
   }
 
-  Widget textfield(TextEditingController _controller, FocusNode _focusNode,
-      String typeName, IconData iconss) {
+  Widget textfield(
+    TextEditingController _controller,
+    FocusNode _focusNode,
+    String typeName,
+    IconData iconss,
+  ) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Container(
@@ -123,27 +128,21 @@ class _LogIN_ScreenState extends State<LogIN_Screen> {
           focusNode: _focusNode,
           style: TextStyle(fontSize: 18, color: Colors.black),
           decoration: InputDecoration(
-              prefixIcon: Icon(
-                iconss,
-                color: _focusNode.hasFocus ? custom_green : Color(0xffc5c5c5),
-              ),
-              contentPadding:
-                  EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-              hintText: typeName,
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
-                  color: Color(0xffc5c5c5),
-                  width: 2.0,
-                ),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
-                  color: custom_green,
-                  width: 2.0,
-                ),
-              )),
+            prefixIcon: Icon(
+              iconss,
+              color: _focusNode.hasFocus ? custom_green : Color(0xffc5c5c5),
+            ),
+            contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+            hintText: typeName,
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: Color(0xffc5c5c5), width: 2.0),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: custom_green, width: 2.0),
+            ),
+          ),
         ),
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_to_do_list/const/colors.dart';
-import 'package:flutter_to_do_list/data/auth_data.dart';
+import 'package:todo_with_firebase/const/colors.dart';
+import 'package:todo_with_firebase/data/auth_data.dart';
 
 class SignUp_Screen extends StatefulWidget {
   final VoidCallback show;
@@ -49,8 +49,12 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
               SizedBox(height: 10),
               textfield(password, _focusNode2, 'Password', Icons.password),
               SizedBox(height: 10),
-              textfield(PasswordConfirm, _focusNode3, 'PasswordConfirm',
-                  Icons.password),
+              textfield(
+                PasswordConfirm,
+                _focusNode3,
+                'PasswordConfirm',
+                Icons.password,
+              ),
               SizedBox(height: 8),
               account(),
               SizedBox(height: 20),
@@ -78,11 +82,12 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
             child: Text(
               'Login',
               style: TextStyle(
-                  color: Colors.blue,
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold),
+                color: Colors.blue,
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -93,8 +98,11 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: GestureDetector(
         onTap: () {
-          AuthenticationRemote()
-              .register(email.text, password.text, PasswordConfirm.text);
+          AuthenticationRemote().register(
+            email.text,
+            password.text,
+            PasswordConfirm.text,
+          );
         },
         child: Container(
           alignment: Alignment.center,
@@ -117,8 +125,12 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
     );
   }
 
-  Widget textfield(TextEditingController _controller, FocusNode _focusNode,
-      String typeName, IconData iconss) {
+  Widget textfield(
+    TextEditingController _controller,
+    FocusNode _focusNode,
+    String typeName,
+    IconData iconss,
+  ) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Container(
@@ -131,27 +143,21 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
           focusNode: _focusNode,
           style: TextStyle(fontSize: 18, color: Colors.black),
           decoration: InputDecoration(
-              prefixIcon: Icon(
-                iconss,
-                color: _focusNode.hasFocus ? custom_green : Color(0xffc5c5c5),
-              ),
-              contentPadding:
-                  EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-              hintText: typeName,
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
-                  color: Color(0xffc5c5c5),
-                  width: 2.0,
-                ),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
-                  color: custom_green,
-                  width: 2.0,
-                ),
-              )),
+            prefixIcon: Icon(
+              iconss,
+              color: _focusNode.hasFocus ? custom_green : Color(0xffc5c5c5),
+            ),
+            contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+            hintText: typeName,
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: Color(0xffc5c5c5), width: 2.0),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: custom_green, width: 2.0),
+            ),
+          ),
         ),
       ),
     );
